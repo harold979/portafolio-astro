@@ -1,276 +1,40 @@
 ---
-/* import heroImage from '@assets/images/hero.png'; */
-import heroImage from '@assets/images/harold.webp';
-import javascript from '@assets/images/javascript-js.svg';
-import typescript from '@assets/images/typescript-icon.svg';
-import php from '@assets/images/php.svg';
-import ejs from '@assets/images/ejs.svg';
-import angular from '@assets/images/file-type-angular.svg';
-import react from '@assets/images/react.svg';
-import node from '@assets/images/node-js.svg';
-import vercel from '@assets/images/vercel.svg';
-import ionic from '@assets/images/file-type-ionic.svg';
-import docker from '@assets/images/docker-original-wordmark.svg';
-import sass from '@assets/images/file-type-sass.svg';
-import mongo from '@assets/images/mongodb-original-wordmark.svg';
-import tailwind from '@assets/images/tailwind-css.svg';
-import oracle from '@assets/images/oracle-original.svg';
-import sqlite from '@assets/images/sqlite.svg';
-import postgresql from '@assets/images/postgresql.svg';
-import git from '@assets/images/git.svg';
-import github from '@assets/images/github.svg';
-import { Image } from '@astrojs/image/components';
-import Button from '@components/ui/Button.astro';
-import { SpinningText } from './SpinningText';
+import HeroContent from "./HeroContent.astro";
 ---
 
-<body>
-	<style>
-		/* Estilos base */
-		.prueba {
-			display: block;
-			font-family: monospace;
-			font-size: 1.5rem;
-			white-space: nowrap;
-			border-right: 4px solid;
-			width: 21ch;
-			animation: typing 2s steps(12), blink 0.5s infinite step-end alternate;
-			overflow: hidden;
-			margin-left: 10rem;
-		}
-
-		/* Estilos para pantallas pequeñas */
-		@media screen and (max-width: 600px) {
-			.prueba {
-				margin-left: 2rem; /* Ajusta el margen izquierdo */
-			}
-		}
-		@keyframes typing {
-			from {
-				width: 0;
-			}
-		}
-		@keyframes blink {
-			50% {
-				border-color: transparent;
-			}
-		}
-		/* .gallery {
-			transform-style: preserve-3d;
-			animation: animate 10s linear infinite;
-			animation-play-state: running;
-		}
-
-		@keyframes animate {
-			0% {
-				transform: perspective(2000px) rotateY(0deg);
-			}
-			100% {
-				transform: perspective(2000px) rotateY(360deg);
-			}
-		}
-
-		.gallery:hover {
-			animation-play-state: paused;
-		} */
-		.gallery {
-			display: inline-block;
-			transition: transform 0.3s ease, opacity 0.3s ease;
-			animation: shake 0.8s infinite;
-		}
-
-		.gallery:hover {
-			transform: scale(1.3);
-
-			opacity: 0.8;
-			animation: none;
-		}
-
-		@keyframes shake {
-			0% {
-				-webkit-transform: rotateZ(-3deg);
-			}
-			50% {
-				-webkit-transform: rotateZ(0deg) scale(0.8);
-			}
-			100% {
-				-webkit-transform: rotateZ(3deg);
-			}
-		}
-
-		@keyframes cereal {
-			0% {
-				transform: translateY(0);
-			}
-			25% {
-				transform: translateY(3%);
-			}
-			50% {
-				transform: translateY(0);
-			}
-			75% {
-				transform: translateY(-3%);
-			}
-			100% {
-				transform: translateY(0);
-			}
-		}
-		.animate-cereal {
-			animation: cereal linear 3s infinite;
-		}
-	</style>
-	<section
-		class="flex h-screen flex-col-reverse items-center justify-center text-center lg:flex-row"
-	>
-		<div class="mb-10 flex flex-col items-center lg:mb-0 lg:w-1/2">
-			<div>
-				<h1 class="mb-10 font-monospace text-3xl text-black dark:text-white lg:text-4xl">
-					Hola! mi nombre es <span class="text-yellow">Harold Cruz</span> Soy un desarrollador creativo
-					y muy práctico, siempre busco la mejor manera de resolver problemas.
-				</h1>
-			</div>
-			<div class="mb-10" id="openModalBtn">
-				<Button style={'primary'} size={'lg'} class={'flex'} name="learn more" class="open-modal">
-					<a href="#modal">Más...</a>
-				</Button>
-			</div>
-		</div>
-
-		<div
-			class="mb-10 flex w-1/2 items-center justify-center font-monospace text-3xl text-black dark:text-white lg:text-4xl"
-		>
-			<div class="grid place-items-center">
-				<div class="md:hidden">
-					<SpinningText size={250} mobile={true} text="Full-Stack • Software • Engineer • ">
-						<Image
-							width={250 * 0.833}
-							height={250 * 0.833}
-							class="animate-cereal h-auto w-3/4 rounded-full"
-							src={heroImage}
-							alt="Cartoon drawing of myself"
-						/>
-					</SpinningText>
-				</div>
-				<div class="hidden md:block">
-					<SpinningText size={450} text="Full-Stack • Software • Engineer • ">
-						<Image
-							width={450 * 0.833}
-							height={450 * 0.833}
-							class="animate-cereal h-auto w-3/4 rounded-full drop-shadow-2xl"
-							src={heroImage}
-							alt="Cartoon drawing of myself"
-						/>
-					</SpinningText>
-				</div>
-			</div>
-		</div>
-	</section>
-	<script>
-		const openModalBtn = document.getElementById('openModalBtn');
-		const closeModalBtn = document.getElementById('closeModalBtn');
-		const modal = document.getElementById('modal');
-
-		openModalBtn.addEventListener('click', function () {
-			modal.classList.remove('hidden');
-		});
-
-		closeModalBtn.addEventListener('click', function () {
-			modal.classList.add('hidden');
-		});
-	</script>
-</body>
-
-<div id="modal" class="fixed inset-0 z-50 flex hidden items-center justify-center">
-	<div
-		class="relative mx-auto w-full max-w-sm rounded-lg bg-yellow p-6 opacity-95 sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl"
-	>
-		<button id="closeModalBtn" class="text-gray-500 hover:text-gray-700 absolute right-0 top-0 m-4">
-			<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M6 18L18 6M6 6l12 12"></path>
-			</svg>
-		</button>
-
-		<br />
-		<p class="text-gray-700 mb-4">
-			Ingeniero de Software con 4+ años de experiencia en desarrollo web (frontend / backend).
-			Dominio en JavaScript, TypeScript, Node, Angular y React. Actualmente aprendiendo JAVA y
-			Python, trabajando en construir proyectos con Astro, Next y Gatsby.
-		</p>
-
-		<h3 class="text-center font-bold italic"><span class="prueba">Habilidades Técnicas</span></h3>
-		<br />
-
-		<div class="grid grid-cols-6 gap-4">
-			<div>
-				<Image
-					src={javascript}
-					alt="Image 1"
-					class="gallery border-indigo-600 h-12 w-12 border-2"
-				/>
-			</div>
-			<div>
-				<Image
-					src={typescript}
-					alt="Image 1"
-					class="gallery border-indigo-600 h-12 w-12 border-2"
-				/>
-			</div>
-			<div>
-				<Image src={php} alt="Image 1" class="gallery border-indigo-600 h-12 w-12 border-2" />
-			</div>
-			<div>
-				<Image src={angular} alt="Image 1" class="gallery border-indigo-600 h-12 w-12 border-2" />
-			</div>
-			<div>
-				<Image src={react} alt="Image 1" class="gallery border-indigo-600 h-12 w-12 border-2" />
-			</div>
-			<div>
-				<Image src={node} alt="Image 1" class="gallery border-indigo-600 h-12 w-12 border-2" />
-			</div>
-			<div>
-				<Image src={vercel} alt="Image 1" class="gallery border-indigo-600 h-12 w-12 border-2" />
-			</div>
-			<div>
-				<Image src={ejs} alt="Image 1" class="gallery border-indigo-600 h-12 w-12 border-2" />
-			</div>
-			<div>
-				<Image src={ionic} alt="Image 1" class="gallery border-indigo-600 h-12 w-12 border-2" />
-			</div>
-			<div>
-				<Image src={docker} alt="Image 1" class="gallery border-indigo-600 h-12 w-12 border-2" />
-			</div>
-			<div>
-				<Image src={tailwind} alt="Image 1" class="gallery border-indigo-600 h-12 w-12 border-2" />
-			</div>
-			<div>
-				<Image src={sass} alt="Image 1" class="gallery border-indigo-600 h-12 w-12 border-2" />
-			</div>
-			<div>
-				<Image src={mongo} alt="Image 1" class="gallery border-indigo-600 h-12 w-12 border-2" />
-			</div>
-			<div>
-				<Image src={oracle} alt="Image 1" class="gallery border-indigo-600 h-12 w-12 border-2" />
-			</div>
-			<div>
-				<Image src={sqlite} alt="Image 1" class="gallery border-indigo-600 h-12 w-12 border-2" />
-			</div>
-			<div>
-				<Image
-					src={postgresql}
-					alt="Image 1"
-					class="gallery border-indigo-600 h-12 w-12 border-2"
-				/>
-			</div>
-			<div>
-				<Image src={git} alt="Image 1" class="gallery border-indigo-600 h-12 w-12 border-2" />
-			</div>
-			<div>
-				<Image src={github} alt="Image 1" class="gallery border-indigo-600 h-12 w-12 border-2" />
-			</div>
-		</div>
-	</div>
+<div class="relative ">
+  <div
+    class="h-[100vh] items-center justify-center flex overflow-hidden px-8 sm:mt-0 -mt-12"
+  >
+    <div class="transition-all isolate -mt-16 sm:-mt-28">
+      <div
+      
+        class="absolute inset-x-0 -z-50 overflow-hidden blur-3xl "
+        aria-hidden="true"
+      >
+        <div
+          class="back animate-roam relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#e0e0e0] to-[#797979] opacity-10 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem] "
+          style={{
+            clipPath:
+              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+          }}
+        >
+        </div>
+      </div>
+      <HeroContent />
+      <div
+        class="absolute inset-x-0 top-[calc(100%-13rem)] -z-50 overflow-hidden blur-3xl sm:top-[calc(100%-30rem)] "
+        aria-hidden="true"
+      >
+        <div
+          class="animate-roam1 relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#e0e0e0] to-[#797979] opacity-10 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+          style={{
+            clipPath:
+              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+          }}
+        >
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

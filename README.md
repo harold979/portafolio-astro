@@ -1,96 +1,154 @@
 
+# Portfolio Website
 
-## Demo
+  
 
-📌 [https://harold-dev.netlify.app/](https://harold-dev.netlify.app/)
+![GitHub](https://img.shields.io/github/license/DevRohit06/Portfolio-website) ![GitHub stars](https://img.shields.io/github/stars/DevRohit06/Portfolio-website) ![GitHub forks](https://img.shields.io/github/forks/DevRohit06/Portfolio-website) ![GitHub last commit](https://img.shields.io/github/last-commit/DevRohit06/Portfolio-website)
+
+  
+
+This is my personal portfolio website built using Tailwind CSS and Astro. It showcases my projects, skills, and contact information.
+
+  
+
+## Preview
+
+  
+
+![Portfolio Website Preview](https://pbs.twimg.com/media/F6iOZw3WAAAtoqK?format=jpg&name=medium)
+
+  
+
+You can check out the live website [here](https://rohitk06.vercel.app).
+
+  
 
 ## Features
 
-✔️ Integration with **Tailwind CSS** ([@astrojs/tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/)) supporting **Dark mode**.
+  
 
-✔️ Uses the following integrations:
+- Responsive design
 
-- @astrojs/mdx
-- @astrojs/image
-- @astrojs/tailwind - with prettier class sorting plugin
-- @astro-icon
-- @astro-seo
-- @astro-navbar
+- Projects showcase
 
-✔️([@Playwright](https://github.com/microsoft/playwright)) e2e tests are setted up.
+- Contact form
 
-🔜 Blog with frontmatter (title, description, author, date, image, tags) and RSS feed, sitemap and robots.txt
+- Blog Page
 
-🔜 404 error page
+  
 
-## Project Structure
+## Technologies Used
 
-Inside of your Astro project, you'll see the following folders and files:
+  
+
+- [Tailwind CSS](https://tailwindcss.com/)
+
+- [Astro](https://astro.build/)
+
+- [React](https://react.dev/)
+
+  
+
+## Installation
+
+  
+
+To run this project locally, follow these steps:
+
+  
+
+1. Clone the repository:
+
+  
+
+```bash
+
+git clone https://github.com/DevRohit06/Portfolio-website.git
 
 ```
-/
-├── public/
-│   └── favicon.ico
-|   ├── hero.png
-|   └── ...
-├── src/
-|   ├── assets/
-|   |   ├── images/
-│   │   |   ├── hero.png
-|   |   |   └── ...
-│   ├── components/
-│   │   ├── ui/
-│   │   |   ├── BackToTop.astro
-|   |   |   └── ...
-│   │   ├── About.astro
-│   │   ├── Contact.astro
-|   |   └── ...
-│   ├── content/
-│   │   ├── projects/
-│   │   │   ├── project-1.md
-│   │   │   ├── project-1.md
-│   │   │   └── ...
-│   │   └-- config.ts
-│   ├── layouts/
-│   │   ├── Layout.astro
-│   ├── pages/
-│   │   ├── index.astro
-│   ├── tests/
-│   │   ├── index.spec.ts
-├── package.json
-├── astro.config.mjs
-└── ...
+
+  
+
+2. Navigate to the project directory:
+
+  
+
+```bash
+
+cd Portfolio-website
+
 ```
 
-Astro looks for `.astro`, `.md` or `.mdx` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-`src/components/` is where we put any Astro components and similarly `src/layouts/` for layouts.
+3. Change the Google Analytics Key Code to your own Key
 
-Images can be placed in `src/images/`.
+Change the Key inside 
+```
+Portfolio-website/src/layouts/Layout.astro & BlogLayout.astro
+```
 
-Blog and documentation content are created as collections of Markdown or MDX files in `src/content`.
 
-Any static assets, eg. images, can be placed in the `public/` directory.
+4. Install the dependencies:
 
-## Commands
+  
 
-All commands are run from the root of the project, from a terminal:
+```bash
 
-| Command             | Action                                             |
-| :------------------ | :------------------------------------------------- |
-| `yarn`              | Installs dependencies                              |
-| `yarn dev`          | Starts local dev server at `localhost:3000`        |
-| `yarn build`        | Build your production site to `./dist/`            |
-| `yarn preview`      | Preview your build locally, before deploying       |
-| `yarn astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `yarn astro --help` | Get help using the Astro CLI                       |
-| `yarn test:e2e`     | Run Playwright tests                               |
+npm install
+
+```
+
+  
+
+5. Start the development server:
+
+  
+
+```bash
+
+npm run dev
+
+```
+
+  
+
+6. Open your browser and visit [http://localhost:3000](http://localhost:3000) to see the website locally.
+
+  
+
+## Usage
+
+  
+
+You can use this project as a template for your own portfolio website. Customize it by adding your own projects, skills, and contact information.
+
+  
 
 ## Contributing
 
-If you have any idea, suggestions or find any bugs, feel free to open a discussion, an issue or create a pull request.
-That would be very useful for all of us and we would be happy to listen and take action.
+  
 
-## Credits
+If you'd like to contribute to this project, please open an issue or submit a pull request.
 
-Assets designed by (Freepik)[www.freepik.com].
+  
+
+## License
+
+  
+
+This project is open source and available under the [MIT License](LICENSE).
+
+  
+
+---
+
+  
+
+Icons made by [FontAwesome](https://fontawesome.com/).
+
+  
+
+Feel free to reach out if you have any questions or suggestions!
+
+
+[![Built with Astro](https://astro.badg.es/v2/built-with-astro/large.svg)](https://astro.build)

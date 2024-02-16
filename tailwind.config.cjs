@@ -1,73 +1,45 @@
-const plugin = require('tailwindcss/plugin');
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	darkMode: 'class',
-	theme: {
-		screens: {
-			xs: '480px',
-			sm: '640px',
-			md: '768px',
-			lg: '1024px',
-			xl: '1280px',
-		},
-		colors: {
-			black: '#000',
-			white: '#fff',
-			orange: '#E06330',
-			yellow: '#DDD101',
-		},
-		fontFamily: {
-			// Headings
-			sans: ['Inter', 'sans-serif'],
-			// Base text
-			monospace: ['Inconsolata', 'monospace'],
-		},
-		fontSize: {
-			xs: '.75rem',
-			sm: '.875rem',
-			tiny: '.875rem',
-			base: '1rem',
-			lg: '1.125rem',
-			xl: '1.25rem',
-			'2xl': '1.5rem',
-			'3xl': '1.875rem',
-			'4xl': '2.25rem',
-			'5xl': '3rem',
-		},
-		letterSpacing: {
-			wide: '.025em',
-		},
-		extend: {
-			animation: {
-				fadeIn: 'fadeIn',
-				fadeOut: 'fadeOut',
-				scaleIn: 'scaleIn',
-				scaleOut: 'scaleOut',
-			},
-			keyframes: {
-				fadeIn: {
-					'0%': { opacity: 0 },
-					'100%': { opacity: 1 },
-				},
-				fadeOut: { '0%': { opacity: 1 }, '100%': { opacity: 0 } },
-				scaleIn: { '0%': { transform: 0 }, '100%': { transform: 1 } },
-				scaleOut: { '0%': { transform: 1 }, '100%': { transform: 0 } },
-			},
-		},
-	},
-	plugins: [
-		plugin(function ({ addBase, theme }) {
-			addBase({
-				h2: {
-					letterSpacing: theme('letterSpacing.wide'),
-					fontWeight: 'bold',
-				},
-				li: {
-					letterSpacing: theme('letterSpacing.wide'),
-				},
-			});
-		}),
-	],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  theme: {
+    extend: {
+      colors: {
+        primary: "#d1d5db",
+      },
+      animation: {
+        text: "text 5s ease infinite",
+        roam: "roam 20s infinite ease-in-out alternate",
+        roam1: "roam 10s infinite ease-in-out alternate",
+      },
+      keyframes: {
+        text: {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
+        roam: {
+          "0%": {
+            transform: "rotate(0deg)  translateX(-600px) translateY(-60px);",
+          },
+          "100%": {
+            transform: "rotate(360deg)  translateX(400px) translateY(600px);",
+          },
+        },
+        roam1: {
+          "0%": {
+            transform: "rotate(0deg)  translateX(-900px) translateY(-20px);",
+          },
+          "100%": {
+            transform: "rotate(360deg)  translateX(20px);",
+          },
+        },
+      },
+    },
+  },
+  plugins: [require("@tailwindcss/typography")],
 };

@@ -1,16 +1,38 @@
-import { defineCollection, z } from 'astro:content';
-
-const projectsCollection = defineCollection({
-	schema: z.object({
-		inProgress: z.boolean(),
-		title: z.string(),
-		tags: z.array(z.string()),
-		link: z.string(),
-		img_alt: z.string().optional(),
-		image: z.array(z.string()),
-	}),
+import { z, defineCollection } from 'astro:content';
+import { rssSchema } from '@astrojs/rss';
+// 2. Define your collection(s)
+const blogCollection = defineCollection({
+  schema: z.object({
+    draft: z.boolean(),
+    title: z.string(),
+    snippet: z.string(),
+    image: z.object({
+      url: z.string(),
+      alt: z.string(),
+    }),
+    publishDate: z.string().transform(str => new Date(str)),
+    author: z.string().default('Astroship'),
+    category: z.string(),
+    tags: z.array(z.string()),
+  }),
 });
 
+const teamCollection = defineCollection({
+  schema: z.object({
+    draft: z.boolean(),
+    name: z.string(),
+    title: z.string(),
+    avatar: z.object({
+      url: z.string(),
+      alt: z.string(),
+    }),
+    publishDate: z.string().transform(str => new Date(str)),
+  }),
+});
+
+// 3. Export a single `collections` object to register your collection(s)
+//    This key should match your collection directory name in "src/content"
 export const collections = {
-	projects: projectsCollection,
+  'blog': blogCollection,
+  'team': teamCollection,
 };
